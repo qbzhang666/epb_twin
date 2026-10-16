@@ -1,0 +1,17 @@
+# Example adapter for a generic EPB record (public). A project copies this file, keeps it with its own data and
+# edits the column map and vocabularies.
+name: example
+columns:                       # standard name: raw column name
+  face_crown_bar: p_crown_bar
+  face_axis_bar: p_axis_bar
+  thrust_kn: thrust_kN
+  cutterhead_torque_mnm: torque_MNm
+ground_classes:
+  order: [F, S, W, R]          # fill, soil, weathered rock, rock (face order)
+  aliases: {FILL: F, CLAY: S, SAND: S, ROCK: R}
+modes:
+  default: full_EPB
+  rules:
+    - {mode: EPB_air_bubble, contains: [bubble, air]}
+    - {mode: semi_EPB, contains: [semi, partial, half]}
+limits: {max_cover_spread_m: 1.5}

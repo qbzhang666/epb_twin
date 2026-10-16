@@ -1,0 +1,7 @@
+site_name: epb_twin
+site_description: Tested tools for ring-by-ring analysis of EPB shield drives
+nav:
+  - Home: index.md
+  - User guide: USER_GUIDE.md
+  - 快速入门 (中文): QUICKSTART.zh.md
+theme: {name: readthedocs}

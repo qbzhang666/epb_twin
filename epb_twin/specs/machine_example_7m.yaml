@@ -1,0 +1,9 @@
+# Example: a 7 m EPB shield (load-model defaults of a machine of this class). Values are illustrative.
+name: epb_7m_example
+excavated_diameter_m: 7.0
+ring_length_m: 1.5
+lining: {extrados_diameter_m: 6.7, thickness_m: 0.35, E_GPa: 35.0, joint_factor: 0.6}
+shield: {length_m: 9.0, overcut_m: 0.03, taper_m: 0.02, weight_kn: 5000}
+backup: {length_m: 60.0, weight_kn: 3000}
+cutterhead: {opening_ratio: 0.30, rim_length_m: 0.3, cutter_radius_m: 0.216, cutter_tip_width_m: 0.015,
+             cutter_spacing_m: 0.08, cutter_rated_load_kn: 250, bearing_torque_knm: 150, seal_contact_length_m: 0.5}

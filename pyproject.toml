@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "epb-twin"
+version = "0.1.0"
+description = "Tested tools for ring-by-ring analysis of EPB shield drives, with an optional language-model agent"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "BSD-3-Clause"}
+authors = [{name = "Qianbing Zhang"}]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: BSD License", "Topic :: Scientific/Engineering"]
+dependencies = ["numpy>=1.21", "pandas>=1.3", "pyyaml>=5.4"]
+
+[project.optional-dependencies]
+excel = ["openpyxl"]
+anthropic = ["anthropic"]
+fe = ["gmsh", "KratosMultiphysics", "KratosGeoMechanicsApplication", "KratosStructuralMechanicsApplication", "KratosLinearSolversApplication"]
+test = ["pytest"]
+
+[project.scripts]
+epb-twin = "epb_twin.cli:main"
+
+[tool.setuptools]
+packages = ["epb_twin", "epb_twin.fe"]
+
+[tool.setuptools.package-data]
+epb_twin = ["adapters/*.yaml", "specs/*.yaml"]

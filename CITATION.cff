@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use epb_twin, please cite the software and the paper that describes it."
+title: "epb_twin: tested tools for ring-by-ring analysis of EPB shield drives"
+version: 0.1.0
+license: BSD-3-Clause
+authors:
+  - family-names: Zhang
+    given-names: Qianbing
+    affiliation: "Department of Civil and Environmental Engineering, Monash University"
+keywords: [tunnelling, EPB shield, finite element, Kratos, digital twin, language-model agent, benchmark]
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Zhang
+      given-names: Qianbing
+  title: "Agentic finite element analysis of shield tunnelling from EPB machine records"
+  journal: "Computer-Aided Civil and Infrastructure Engineering"
+  year: 2026
+  status: in-preparation

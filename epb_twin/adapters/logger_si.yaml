@@ -1,0 +1,37 @@
+# Example: a machine-logger export with sensor-numbered pressures in kPa, thrust in MN, torque in kN m and
+# advance in mm/s. Copy and edit the column names to match your export.
+name: logger_si
+columns:
+  drive: TBM
+  ring_no: Ring
+  cover_m: Cover_m
+  soil_thickness_m: SoilAboveRock_m
+  water_bar: WaterAtCrown_kPa
+  ground_class: FaceGeology
+  operating_mode: Mode
+  face_crown_bar: EP_upper_mean
+  face_axis_bar: EP_axis_mean
+  thrust_kn: Thrust_total
+  contact_force_kn: CH_contact_force
+  cutterhead_torque_mnm: CH_torque
+  advance_speed_mm_min: Advance_rate
+  cutterhead_speed_rpm: CH_speed
+  total_grout_m3: Grout_total
+  theoretical_grout_m3: Grout_theoretical
+units:
+  water_bar: kPa
+  face_crown_bar: kPa
+  face_axis_bar: kPa
+  thrust_kn: MN
+  contact_force_kn: MN
+  cutterhead_torque_mnm: kN m
+  advance_speed_mm_min: mm/s
+ground_classes:
+  order: [F, S, W, R]
+  aliases: {FILL: F, CLAY: S, SAND: S, WEATHERED: W, ROCK: R}
+modes:
+  default: full_EPB
+  rules:
+    - {mode: EPB_air_bubble, contains: [bubble, air]}
+    - {mode: semi_EPB, contains: [semi, partial, half, open]}
+limits: {max_cover_spread_m: 1.5}

@@ -1,0 +1,21 @@
+# Apptainer / Singularity image for clusters (no root needed to run it).
+#   apptainer build epb_twin.sif containers/epb_twin.def          (build where you have root or --fakeroot)
+#   apptainer exec epb_twin.sif python -m epb_twin.fe.advance run --rings 45 --steps 4
+# In a Slurm script: replace "source <venv>/bin/activate" by "module load apptainer" and prefix the python
+# command with "apptainer exec /path/epb_twin.sif".
+Bootstrap: docker
+From: python:3.11-slim
+
+%files
+    . /opt/epb_twin
+
+%post
+    apt-get update && apt-get install -y --no-install-recommends libglu1-mesa libxrender1 libxcursor1 libxft2 libxinerama1
+    rm -rf /var/lib/apt/lists/*
+    pip install --no-cache-dir "/opt/epb_twin[fe,excel]" -c /opt/epb_twin/constraints-fe.txt
+
+%environment
+    export OMP_WAIT_POLICY=passive
+
+%runscript
+    exec python -m epb_twin "$@"

@@ -1,0 +1,6 @@
+# Example: soil over rock. Values are illustrative.
+name: soil_over_rock
+materials:
+  Soil: {E_MPa: 20, nu: 0.35, gamma: 18.5, K0: 0.5, c_kPa: 5, phi_deg: 30}
+  Rock: {E_MPa: 150, nu: 0.28, gamma: 23.0, K0: 0.7, c_kPa: 100, phi_deg: 35}
+default_layers: [Soil, Rock]

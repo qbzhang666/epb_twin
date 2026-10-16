@@ -1,0 +1,6 @@
+# Versions of the finite element stack tested with this release (pip install -e ".[fe]" -c constraints-fe.txt)
+KratosMultiphysics==10.4.4
+KratosGeoMechanicsApplication==10.4.4
+KratosStructuralMechanicsApplication==10.4.4
+KratosLinearSolversApplication==10.4.4
+gmsh==4.15.2

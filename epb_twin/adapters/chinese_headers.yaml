@@ -1,0 +1,35 @@
+# Example: a record with Chinese column headers, geology described in words and modes in Chinese.
+# 示例：中文表头、文字描述的地层和中文掘进模式。按你的导出表修改列名和词表。
+name: chinese_headers
+columns:
+  drive: 线别
+  ring_no: 环号
+  cover_m: 覆土厚度
+  cover_spread_m: 覆土误差
+  soil_thickness_m: 岩面以上土层厚度
+  water_bar: 拱顶水压
+  ground_class: 掌子面地层
+  operating_mode: 掘进模式
+  face_crown_bar: 上部土压
+  face_axis_bar: 中部土压
+  thrust_kn: 总推力
+  contact_force_kn: 刀盘贯入力
+  cutterhead_torque_mnm: 刀盘扭矩
+  advance_speed_mm_min: 推进速度
+  cutterhead_speed_rpm: 刀盘转速
+  total_grout_m3: 同步注浆量
+  theoretical_grout_m3: 理论注浆量
+units:
+  face_crown_bar: MPa
+  face_axis_bar: MPa
+  water_bar: MPa
+  cutterhead_torque_mnm: kN m
+ground_classes:
+  order: [F, S, W, R]
+  aliases: {填土: F, 黏土: S, 粉土: S, 砂: S, 强风化: W, 全风化: W, 中风化: R, 微风化: R}
+modes:
+  default: full_EPB
+  rules:
+    - {mode: EPB_air_bubble, contains: [气压, 气垫]}
+    - {mode: semi_EPB, contains: [半土压, 欠压, 半敞开]}
+limits: {max_cover_spread_m: 1.5}
